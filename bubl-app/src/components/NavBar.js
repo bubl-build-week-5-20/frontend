@@ -1,4 +1,7 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import PrivateRoute from '../PrivateRoute';
+
 import './NavBar.css';
 import {
   Collapse,
@@ -11,7 +14,8 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem } from 'reactstrap';
+  DropdownItem
+} from 'reactstrap';
 
 export default class NavigationBar extends React.Component {
   constructor(props) {
@@ -30,27 +34,27 @@ export default class NavigationBar extends React.Component {
   render() {
     return (
       <div>
-        <Navbar color="faded" light expand="md">
+        <Navbar color="light" light expand="md">
           <NavbarBrand href="/">Bubl</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/components/">Components</NavLink>
+                <NavLink href="/home">Home</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+                <NavLink href="/signup">Create an Account</NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
-                  Sign In/Sign Up
+                  Existing User
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem>
-                    Existing User
+                    <Link to="/login">Sign In</Link>
                   </DropdownItem>
                   <DropdownItem>
-                    Create a new Account
+                    <Link to="/protected">Protected</Link>
                   </DropdownItem>
                   <DropdownItem divider />
                   <DropdownItem>
@@ -61,6 +65,7 @@ export default class NavigationBar extends React.Component {
             </Nav>
           </Collapse>
         </Navbar>
+        <PrivateRoute exact path="/protected" />
       </div>
     );
   }
