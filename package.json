@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "axios": "^0.18.0",
+    "netlify-cli": "^2.11.19",
     "react-loader-spinner": "^2.3.0",
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",

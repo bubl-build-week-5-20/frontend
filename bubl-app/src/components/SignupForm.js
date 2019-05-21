@@ -57,14 +57,14 @@ class SignupForm extends React.Component {
                             value={this.state.password}
                             onChange={this.handleChanges}
                         />
-                        {/* <input
-                        placeholder="role"
+                        <input
+                        placeholder="Role (student or admin)"
                         type="text"
                         name="role"
                         className="form-control"
                         value={this.state.role}
                         onChange={this.handleChanges}
-                    /> */}
+                    />
                         <button className="btn btn-primary btn-lg">Sign Up</button>
                     </form>
                 </div>
