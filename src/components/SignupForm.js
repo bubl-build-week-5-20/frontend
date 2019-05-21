@@ -1,7 +1,7 @@
 import React from 'react';
 import { addUser } from '../actions';
 import { connect } from 'react-redux';
-import Carousel from './Carousel';
+// import Carousel from './Carousel';
 import './Signup.css';
 
 class SignupForm extends React.Component {
