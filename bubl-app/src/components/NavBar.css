@@ -1,0 +1,11 @@
+.navbar-brand {
+    color: rgb(255, 255, 255);
+}
+
+.ml-auto .navbar-nav {
+    color: white;
+}
+.bubl {
+    font-weight: bolder;
+    color: rgb(102, 102, 236);
+}

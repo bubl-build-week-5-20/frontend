@@ -1,0 +1,13 @@
+.homepage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.homepageHeaders h1{
+    margin: 30px 0;
+    color: #8b90c6;
+}
+.homepageHeaders h4 {
+    opacity: .7;
+}

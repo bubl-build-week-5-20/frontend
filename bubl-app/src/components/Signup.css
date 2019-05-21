@@ -1,0 +1,43 @@
+.signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signupHeader {
+  margin: 30px 0;
+  color: #8b90c6;
+}
+
+.signupForm {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: 0 2px;
+}
+
+.signupForm button {
+  background: #8b90c6;
+  border-color: #8b90c6;
+}
+
+.signupForm button:hover {
+  background: #2fb8be;
+  border-color: #2fb8be;
+}
+
+.signupFill {
+  padding-top: 50px;
+  margin: 0 auto;
+  text-align: center;
+  width: 40%;
+}
+
+.signupFill h3 {
+  color: #2fb8be;
+}
+
+input:hover {
+    border-bottom: 1px solid black;
+    border-radius: 0;
+}
