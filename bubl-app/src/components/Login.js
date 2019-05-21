@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Loader from 'react-loader-spinner';
-
+import './Login.css'
 import { login } from '../actions';
 
 class Login extends React.Component {
@@ -30,23 +30,26 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.login}>
+      <div className="loginPage">
+        <div className="loginHeader"><h2>Please Log in</h2></div>
+        <form className="loginForm" onSubmit={this.login}>
           <input
+          placeholder="username"
             type="text"
             name="username"
             value={this.state.credentials.username}
             onChange={this.handleChange}
           />
           <input
-            type="password"
+            placeholder="password"
+            type="text"
             name="password"
             value={this.state.credentials.password}
             onChange={this.handleChange}
           />
           <button>
             {this.props.isLoggingIn ? (
-              <Loader type="ThreeDots" color="#1f2a38" height="12" width="26" />
+              <Loader type="ThreeDots" color="#2fb8be" height="12" width="26" />
             ) : (
                 'Log in'
               )}

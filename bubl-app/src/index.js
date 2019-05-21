@@ -12,6 +12,7 @@ import './index.css';
 import PrivateRoute from './PrivateRoute';
 import SignupForm from './components/SignupForm'
 import SignUpList from './components/SignUpList';
+import Homepage from './components/Homepage';
 
 
 const store = createStore(reducer, applyMiddleware(thunk));
@@ -24,9 +25,12 @@ function App() {
                     <NavBar className="navbar" />
                 </header>
                 <div className="test">
+                    {/* <Homepage /> */}
                     <SignUpList />
                 </div>
             </div>
+            <Route exact path="/" component={Homepage} />
+            <Route path="/home" component={Homepage}/>
             <Route path="/login" component={Login} />
             <Route path="/signup" component={SignupForm} />
             <PrivateRoute exact path="/protected" />

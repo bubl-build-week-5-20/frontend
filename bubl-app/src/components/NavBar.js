@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Link } from 'react-router-dom';
 import PrivateRoute from '../PrivateRoute';
 
 import './NavBar.css';
@@ -35,7 +35,7 @@ export default class NavigationBar extends React.Component {
     return (
       <div>
         <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">Bubl</NavbarBrand>
+          <NavbarBrand href="/" className="bubl">Bubl</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
