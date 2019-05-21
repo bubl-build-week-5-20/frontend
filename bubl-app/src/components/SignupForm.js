@@ -1,6 +1,8 @@
 import React from 'react';
 import { addUser } from '../actions';
 import { connect } from 'react-redux';
+import online_friends from '../undraw/online_friends.png';
+import taking_selfie from '../undraw/taking_selfie.png';
 import './Signup.css';
 
 class SignupForm extends React.Component {
@@ -66,10 +68,12 @@ class SignupForm extends React.Component {
                         <button className="btn btn-primary btn-lg">Sign Up</button>
                     </form>
                 </div>
+                <img src={online_friends} />
                 <div className="signupFill"><h3>Meet other students now!</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse mollis est at arcu auctor sodales. Aliquam ultricies risus nec risus viverra, ac iaculis lectus rhoncus. Nulla augue purus, tempor sed tristique quis, lacinia sit amet urna. Mauris eget orci non nulla semper iaculis. Maecenas volutpat
                     </p>
                 </div>
+                <img src={taking_selfie} />
                 <div className="signupFill"><h3>Create and grow your Bubls!</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse mollis est at arcu auctor sodales. Aliquam ultricies risus nec risus viverra, ac iaculis lectus rhoncus. Nulla augue purus, tempor sed tristique quis, lacinia sit amet urna. Mauris eget orci non nulla semper iaculis. Maecenas volutpat
                     </p>

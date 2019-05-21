@@ -43,6 +43,9 @@ export default class NavigationBar extends React.Component {
                 <NavLink href="/home">Home</NavLink>
               </NavItem>
               <NavItem>
+                <NavLink href="/schools">Schools</NavLink>
+              </NavItem>
+              <NavItem>
                 <NavLink href="/signup">Create an Account</NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
