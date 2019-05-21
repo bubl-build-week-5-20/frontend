@@ -43,7 +43,10 @@ export default class NavigationBar extends React.Component {
                 <NavLink href="/home">Home</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/schools">Schools</NavLink>
+                <NavLink href="/about">About Us</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/schools">Find Your School</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="/signup">Create an Account</NavLink>
@@ -54,7 +57,7 @@ export default class NavigationBar extends React.Component {
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem>
-                    <Link to="/login">Sign In</Link>
+                    <NavLink href="/login">Sign In</NavLink>
                   </DropdownItem>
                   <DropdownItem>
                     <Link to="/protected">Protected</Link>
