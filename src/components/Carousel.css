@@ -1,0 +1,22 @@
+.carousel-item > img {
+    margin: 0 auto;
+    width: 35%; 
+  }
+
+  .carousel-caption h3 {
+      color: rgb(113, 202, 86);
+  }
+
+  .carousel-caption p {
+      display: none;
+}
+.carousel-control-prev-icon {
+    background-color: blue;
+}
+.carousel-control-next-icon {
+    background-color: rgb(114, 114, 235);
+}
+
+.carousel-caption .d-none .d-md-block {
+    color: orange;
+}

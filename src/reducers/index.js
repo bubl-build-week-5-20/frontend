@@ -1,7 +1,11 @@
 import {
     LOGIN_START, LOGIN_SUCCESS, LOGIN_ABSOLUTE_FAILURE,
     FETCH_USERS_START, FETCH_USERS_SUCCESS, FETCH_USERS_FAIL,
-    ADD_USERS_START, ADD_USERS_SUCCESS, ADD_USERS_FAIL
+    ADD_USERS_START, ADD_USERS_SUCCESS, ADD_USERS_FAIL,
+    FETCH_SCHOOLS_START, FETCH_SCHOOLS_SUCCESS, FETCH_SCHOOLS_FAIL,
+    ADD_POST_START, ADD_POST_SUCCESS, ADD_POST_FAIL,
+    FETCH_POST_START, FETCH_POST_SUCCESS, FETCH_POST_FAIL,
+
 } from '../actions';
 
 const intitialState = {
@@ -9,7 +13,12 @@ const intitialState = {
     fetchingUsers: false,
     addingUsers: false,
     isLoggingIn: false,
-    error: null
+    error: null,
+    schools: [],
+    fetchingSchools: false,
+    addingPost: false,
+    posts: [],
+    fetchingPosts: false,
 }
 
 export const reducer = (state = intitialState, action) => {
@@ -42,7 +51,7 @@ export const reducer = (state = intitialState, action) => {
             return {
                 ...state,
                 fetchingUsers: false,
-                smurfs: action.payload
+                users: action.payload
             }
         case FETCH_USERS_FAIL:
             return {
@@ -60,7 +69,7 @@ export const reducer = (state = intitialState, action) => {
             return {
                 ...state,
                 addingUsers: false,
-                smurfs: action.payload
+                users: action.payload
             }
         case ADD_USERS_FAIL:
             return {
@@ -68,7 +77,60 @@ export const reducer = (state = intitialState, action) => {
                 addingUsers: false,
                 error: action.payload
             }
-
+        case FETCH_SCHOOLS_START:
+            return {
+                ...state,
+                fetchingSchools: true,
+                error: ''
+            }
+        case FETCH_SCHOOLS_SUCCESS:
+            return {
+                ...state,
+                fetchingSchools: false,
+                schools: action.payload
+            }
+        case FETCH_SCHOOLS_FAIL:
+            return {
+                ...state,
+                fetchingSchools: false,
+                error: action.payload
+            }
+        case ADD_POST_START:
+            return {
+                ...state,
+                addingPost: true,
+                error: ''
+            }
+        case ADD_POST_SUCCESS:
+            return {
+                ...state,
+                addingPost: false,
+                posts: action.payload
+            }
+        case ADD_POST_FAIL:
+            return {
+                ...state,
+                addingPost: false,
+                posts: action.payload
+            }
+        case FETCH_POST_START:
+            return {
+                ...state,
+                fetchingPosts: true,
+                error: ''
+            }
+        case FETCH_POST_SUCCESS:
+            return {
+                ...state,
+                fetchingPosts: false,
+                posts: action.payload
+            }
+        case FETCH_POST_FAIL:
+            return {
+                ...state,
+                fetchingPosts: false,
+                error: action.payload
+            }
 
         default:
             return state;

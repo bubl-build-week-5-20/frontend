@@ -43,7 +43,7 @@ export default class NavigationBar extends React.Component {
                 <NavLink href="/home">Home</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/about">About Us</NavLink>
+                <NavLink href="https://angry-villani-175823.netlify.com/#about">About Us</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="/schools">Find Your School</NavLink>
@@ -60,7 +60,7 @@ export default class NavigationBar extends React.Component {
                     <NavLink href="/login">Sign In</NavLink>
                   </DropdownItem>
                   <DropdownItem>
-                    <Link to="/protected">Protected</Link>
+                    <Link to="/posts">Posts</Link>
                   </DropdownItem>
                   <DropdownItem divider />
                   <DropdownItem>
@@ -71,7 +71,6 @@ export default class NavigationBar extends React.Component {
             </Nav>
           </Collapse>
         </Navbar>
-        <PrivateRoute exact path="/protected" />
       </div>
     );
   }

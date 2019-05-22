@@ -7,15 +7,16 @@
 
 .loginHeader {
   margin: 30px 0;
-  color: #8b90c6;
+  color: #bdd13e;
 }
 
 .loginForm {
   display: flex;
   flex-direction: column;
-  border: 1px solid #8b90c6;
+  border: 1px solid #2fb8be;
   padding: 20px;
   box-shadow: 0 2px;
+  background: rgb(245, 245, 244);
 }
 
 input {
@@ -23,18 +24,18 @@ input {
 }
 
 input[type="text"] {
-    border: 0;
+  border: 0;
   margin: 10px 0;
 }
 
 .loginPage button {
-    margin-top: 20px;
-  border: 1px solid #8b90c6;
+  margin-top: 20px;
+  border: 1px solid #2fb8be;
   font-size: 150%;
   text-align: center;
   padding: 8px 15px;
   background-color: #ffffff;
-  color: #8b90c6;
+  color: #2fb8be;
   overflow: hidden;
   border-radius: 45px;
   box-shadow: 0 5px;
@@ -42,11 +43,24 @@ input[type="text"] {
 }
 .loginPage button:hover {
   background-color: #ffffff;
-  border: 1px solid #2fb8be;
-  color: #2fb8be;
+  border: 1px solid #bdd13e;
+  color: #bdd13e;
 }
 
 input::placeholder {
   color: #2fb8be;
   opacity: 0.8;
+}
+
+.redirectSignup {
+  margin-top: 15px;
+  text-decoration: none;
+  color: #bdd13e;
+}
+
+.bgLogin {
+  background-image: url('loving_it.png');
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  height: 100%;
 }

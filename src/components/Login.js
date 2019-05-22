@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Loader from 'react-loader-spinner';
 import './Login.css'
 import { login } from '../actions';
+import { Link } from 'react-router-dom';
 
 class Login extends React.Component {
   state = {
@@ -23,13 +24,16 @@ class Login extends React.Component {
 
   login = e => {
     e.preventDefault();
-    this.props.login(this.state.credentials).then(() => {
-      this.props.history.push('/login');
+    this.props.login(this.state.credentials)
+    .then(() => {
+      this.props.history.push('/posts');
     });
   };
 
   render() {
     return (
+      <React.Fragment>
+      <div className="bgLogin"></div>
       <div className="loginPage">
         <div className="loginHeader"><h2>Please Log in</h2></div>
         <form className="loginForm" onSubmit={this.login}>
@@ -55,7 +59,9 @@ class Login extends React.Component {
               )}
           </button>
         </form>
+        <Link to="/signup"><p className="redirectSignup">Don't have an account yet? Click Here!</p></Link>
       </div>
+      </React.Fragment>
     );
   }
 }

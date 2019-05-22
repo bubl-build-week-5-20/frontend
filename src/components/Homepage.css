@@ -10,4 +10,28 @@
 }
 .homepageHeaders h4 {
     opacity: .7;
+    margin-bottom: 50px;
+}
+
+.homepage button {
+    border: 1px solid #8b90c6;
+    font-size: 100%;
+    text-align: center;
+    padding: 8px 15px;
+    background-color: #ffffff;
+    color: #8b90c6;
+    overflow: hidden;
+    border-radius: 45px;
+    margin-bottom: 2%;
+}
+
+.homepage button:hover {
+    background-color: #bdd13e;
+    border: 1px solid #bdd13e;
+    color: #ffffff;
+}
+
+.homepage span {
+    opacity: .8;
+    color: #8ba006;
 }
