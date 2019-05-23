@@ -1,13 +1,16 @@
 import React from 'react';
-import { addPost } from '../actions';
+import { addPost, getPosts } from '../actions';
 import { connect } from 'react-redux';
 
 class Posts extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            post: '',
-            user: {}
+            post: {
+                title: '',
+                body: '',
+                FK_bubl_id: this.props.bubl_id
+            }
         }
     }
 
@@ -18,20 +21,34 @@ class Posts extends React.Component {
 
     handleChanges = e => {
         e.preventDefault();
-        this.setState({ [e.target.name]: e.target.value })
+        this.setState({
+            post: {
+                ...this.state.post,
+                [e.target.name]: e.target.value
+            }
+        })
     }
 
     addPost = e => {
         e.preventDefault();
         const newPost = {
-            name: this.state.user.author,
-            post: this.state.post,
+            title: this.state.post.title,
+            body: this.state.post.body,
+            FK_bubl_id: this.state.post.FK_bubl_id
         }
         this.props.addPost(newPost);
+        this.props.getPosts();
 
         this.setState({
-            post: '',
+            post: {
+                title: '',
+                body: '',
+            }
         })
+    }
+
+    refreshPage = () => {
+        window.location.reload();
     }
 
     render() {
@@ -40,12 +57,19 @@ class Posts extends React.Component {
                 <form onSubmit={this.addPost}>
                     <input
                         onChange={this.handleChanges}
-                        placeholder="post"
-                        name="name"
+                        placeholder="title"
+                        name="title"
                         type='text'
-                        value={this.state.post}
+                        value={this.state.post.title}
                     />
-                    <button type="submit">Add Post</button>
+                    <input
+                        onChange={this.handleChanges}
+                        placeholder="body"
+                        name="body"
+                        type='text'
+                        value={this.state.post.body}
+                    />
+                    <button type="submit" onClick={this.refreshPage}>Add Post</button>
                 </form>
 
             </div>
@@ -61,6 +85,5 @@ const mapStateToProps = state => {
 }
 
 export default connect(
-    mapStateToProps, 
-    {addPost})
-    (Posts);
+    mapStateToProps,
+    { addPost, getPosts })(Posts);

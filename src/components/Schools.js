@@ -1,6 +1,7 @@
 import React from 'react';
 import { getSchools } from '../actions';
 import { connect } from 'react-redux';
+import './Schools.css';
 
 class Schools extends React.Component {
 
@@ -9,13 +10,12 @@ class Schools extends React.Component {
     }
 
     render() {
-        console.log('schools array:', this.props.schools)
         return (
             <div className="schoolList">
-                {this.props.schools.map(school => ( 
+                {this.props.schools.map(school => (
                     <div key={school.id}>
                         <h1>{school.school_name}</h1>
-                        <p>Bubls:</p>
+                        <button>Click Here for more info</button>
                     </div>
                 ))}
             </div>

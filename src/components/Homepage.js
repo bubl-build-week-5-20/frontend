@@ -1,11 +1,8 @@
 import React from 'react';
 import './Homepage.css'
-import true_friends from '../undraw/true_friends.png';
+import true_friends from '../undraw2/true_friends.png';
 import { BrowserRouter as NavLink } from 'react-router-dom';
 class Homepage extends React.Component {
-    constructor() {
-        super();
-    }
 
     render() {
         return (
@@ -23,7 +20,7 @@ class Homepage extends React.Component {
                     <span><NavLink href="/signup"><button>Log In</button> </NavLink>
                     </span>
                 </div>
-                <img src={true_friends} />
+                <img src={true_friends} alt="True friends homepage" />
             </div>
         )
     }

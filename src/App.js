@@ -8,7 +8,6 @@ import Schools from './components/Schools';
 import { Route, withRouter } from 'react-router-dom';  
 import React from 'react';
 import PostList from './components/PostList';
-import Posts from './components/Posts';
 
 class App extends React.Component {
 
@@ -27,7 +26,6 @@ class App extends React.Component {
             <Route path="/login" component={Login} />
             <Route path="/signup" component={SignupForm} />
             <PrivateRoute path="/posts" component={PostList} />
-            <Route path="/make-post" component={Posts} />
             </div>
     )
     }

@@ -58,10 +58,28 @@ export const getSchools = () => dispatch => {
   axios
     .get('https://bublapp.herokuapp.com/api/schools')
     .then(res => {
+      // const names = Object.keys(res.data);
+      // console.log(names);
       dispatch({ type: FETCH_SCHOOLS_SUCCESS, payload: res.data })
     })
     .catch(err => {
       dispatch({ type: FETCH_SCHOOLS_FAIL, payload: err})
+    })
+}
+
+export const FETCH_SCHOOLDATA_START = 'FETCH_SCHOOLDATA_START';
+export const FETCH_SCHOOLDATA_SUCCESS = 'FETCH_SCHOOLDATA_SUCCESS';
+export const FETCH_SCHOOLDATA_FAIL = 'FETCH_SCHOOLDATA_FAIL';
+
+export const getSchoolData = (id) => dispatch => {
+  dispatch ({ type: FETCH_SCHOOLDATA_START });
+  axios
+    .post(`https://bublapp.herokuapp.com/api/schools/${id}/join`)
+    .then(res => {
+      dispatch({ type: FETCH_SCHOOLDATA_SUCCESS, payload: id })
+    })
+    .catch(err => {
+      dispatch({ type: FETCH_SCHOOLDATA_FAIL, payload: err})
     })
 }
 
@@ -71,10 +89,10 @@ export const ADD_POST_FAIL = 'ADD_POST_FAIL';
 
 export const addPost = newPost => dispatch => {
   dispatch ({ type: ADD_POST_START });
-  axiosWithAuth()
+  return axiosWithAuth()
     .post(`https://bublapp.herokuapp.com/api/posts`, newPost)
     .then(res => {
-      dispatch({ type: ADD_POST_SUCCESS, payload: res.data.post });
+      dispatch({ type: ADD_POST_SUCCESS, payload: res.data });
     })
     .catch(err => {
       dispatch({ type: ADD_POST_FAIL, payload: err});
@@ -94,5 +112,21 @@ export const getPosts = () => dispatch => {
     })
     .catch(err => {
       dispatch({ type: FETCH_POST_FAIL, payload: err})
+    })
+}
+
+export const DELETE_POST_START = 'DELETE_POST_START';
+export const DELETE_POST_SUCCESS = 'DELETE_POST_SUCCESS';
+export const DELETE_POST_FAIL = 'DELETE_POST_FAIL';
+
+export const deletePost = id => dispatch => {
+  dispatch ({ type: DELETE_POST_START }); 
+  return axiosWithAuth()
+    .delete(`https://bublapp.herokuapp.com/api/posts/${id}`)
+    .then(res => { 
+      dispatch({ type: DELETE_POST_SUCCESS, payload: id });
+    })
+    .catch(err => {
+      dispatch({ type: DELETE_POST_FAIL, payload: err});
     })
 }

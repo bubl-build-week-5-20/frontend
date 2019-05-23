@@ -1,17 +1,15 @@
 .postMain {
     max-width: 60%;
     margin: 0 auto;
-    border: 1px solid #bdd13e;
-    background: rgb(245, 245, 244);
     color: #2fB8BE;
-    box-shadow: 0 2px;
+    border: 1px solid black;
 }
 
 .postTitle {
     width: 90%;
     margin: 0 auto;
     color: #2fB8BE;
-    border-bottom: 1px solid #2fB8BE;
+
 }
 
 .postMain p {
@@ -23,7 +21,6 @@
 .postList h4 {
     font-size: .9rem;
     font-weight: bolder;
-    color: #bdd13e;
 }
 
 .postList h5 {
@@ -33,5 +30,4 @@
 
 .postBodyTitle {
     color: #bdd13e;
-    border-bottom: 1px solid #222222;
 }

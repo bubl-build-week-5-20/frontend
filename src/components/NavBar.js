@@ -1,7 +1,4 @@
 import React from 'react';
-import { BrowserRouter as Link } from 'react-router-dom';
-import PrivateRoute from '../PrivateRoute';
-
 import './NavBar.css';
 import {
   Collapse,
@@ -49,6 +46,11 @@ export default class NavigationBar extends React.Component {
                 <NavLink href="/schools">Find Your School</NavLink>
               </NavItem>
               <NavItem>
+              <NavLink href="/posts">Posts</NavLink>
+              </NavItem>
+              <NavItem>
+              </NavItem>
+              <NavItem>
                 <NavLink href="/signup">Create an Account</NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
@@ -59,13 +61,7 @@ export default class NavigationBar extends React.Component {
                   <DropdownItem>
                     <NavLink href="/login">Sign In</NavLink>
                   </DropdownItem>
-                  <DropdownItem>
-                    <Link to="/posts">Posts</Link>
-                  </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>
-                    Reset
-                  </DropdownItem>
+
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>

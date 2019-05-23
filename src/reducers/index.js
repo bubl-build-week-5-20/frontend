@@ -5,6 +5,8 @@ import {
     FETCH_SCHOOLS_START, FETCH_SCHOOLS_SUCCESS, FETCH_SCHOOLS_FAIL,
     ADD_POST_START, ADD_POST_SUCCESS, ADD_POST_FAIL,
     FETCH_POST_START, FETCH_POST_SUCCESS, FETCH_POST_FAIL,
+    DELETE_POST_START, DELETE_POST_SUCCESS, DELETE_POST_FAIL,
+    FETCH_SCHOOLDATA_START, FETCH_SCHOOLDATA_SUCCESS, FETCH_SCHOOLDATA_FAIL
 
 } from '../actions';
 
@@ -16,9 +18,12 @@ const intitialState = {
     error: null,
     schools: [],
     fetchingSchools: false,
+    fetchingSchoolData: false,
+    schoolData: [],
     addingPost: false,
     posts: [],
     fetchingPosts: false,
+    deletePost: false,
 }
 
 export const reducer = (state = intitialState, action) => {
@@ -95,6 +100,24 @@ export const reducer = (state = intitialState, action) => {
                 fetchingSchools: false,
                 error: action.payload
             }
+        case FETCH_SCHOOLDATA_START:
+            return {
+                ...state,
+                fetchingSchoolData: true,
+                error: ''
+            }
+        case FETCH_SCHOOLDATA_SUCCESS:
+            return {
+                ...state,
+                fetchingSchoolData: false,
+                schoolData: action.payload
+            }
+        case FETCH_SCHOOLDATA_FAIL:
+            return {
+                ...state,
+                fetchingSchoolData: false,
+                error: action.payload
+            }
         case ADD_POST_START:
             return {
                 ...state,
@@ -129,6 +152,25 @@ export const reducer = (state = intitialState, action) => {
             return {
                 ...state,
                 fetchingPosts: false,
+                error: action.payload
+            }
+        case DELETE_POST_START:
+            return {
+                ...state,
+                deletePost: true,
+                error: ''
+            }
+        case DELETE_POST_SUCCESS:
+            console.log(action.payload)
+            return {
+                ...state,
+                deletePost: false,
+                posts: state.posts.filter(post => post.id !== action.payload)
+            }
+        case DELETE_POST_FAIL:
+            return {
+                ...state,
+                deletePost: false,
                 error: action.payload
             }
 
