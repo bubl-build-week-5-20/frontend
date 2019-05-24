@@ -3,6 +3,7 @@ import { addUser } from '../actions';
 import { connect } from 'react-redux';
 import CarouselPage from './Carousel';
 import './Signup.css';
+import { Link } from 'react-router-dom';
 
 class SignupForm extends React.Component {
 
@@ -65,6 +66,7 @@ class SignupForm extends React.Component {
                         onChange={this.handleChanges}
                     /> */}
                         <button className="btn btn-primary btn-lg">Sign Up</button>
+                        <Link to="/login"><p className="redirectSignup">Already a member? Login here!</p></Link>
                     </form>
                 </div>
                 <CarouselPage />

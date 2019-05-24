@@ -3,6 +3,7 @@ import { getPosts, deletePost } from '../actions';
 import { connect } from 'react-redux';
 import Posts from './Posts';
 import './PostList.css';
+import Comments from '../components/Comments';
 
 class PostList extends React.Component {
     componentDidMount() {
@@ -13,9 +14,10 @@ class PostList extends React.Component {
     }
 
     render() { 
+        debugger;
         return(
             <React.Fragment>
-                <Posts />
+                <Posts/>
             <div className="postList">
                 <h1>Posts</h1>
                 {this.props.posts.map(post => (
@@ -25,6 +27,7 @@ class PostList extends React.Component {
                         <p>{post.body}</p>
                         <h4>By: {post.author}</h4>
                         <h5>Created at: {post.created_at}</h5>
+                        <Comments />
                         <button onClick={() => this.deletePost(post.id)}>Delete post</button>
                         </div>
                 ))}

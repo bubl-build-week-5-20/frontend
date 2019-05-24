@@ -29,12 +29,11 @@ class Posts extends React.Component {
         })
     }
 
-    addPost = e => {
+    addPost = (e)=> {
         e.preventDefault();
         const newPost = {
             title: this.state.post.title,
             body: this.state.post.body,
-            FK_bubl_id: this.state.post.FK_bubl_id
         }
         this.props.addPost(newPost);
         this.props.getPosts();
@@ -69,7 +68,7 @@ class Posts extends React.Component {
                         type='text'
                         value={this.state.post.body}
                     />
-                    <button type="submit" onClick={this.refreshPage}>Add Post</button>
+                    <button type="submit">Add Post</button>
                 </form>
 
             </div>

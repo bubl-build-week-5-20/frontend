@@ -1,5 +1,5 @@
 import React from 'react';
-import { getSchools } from '../actions';
+import { getSchools, getSchoolData } from '../actions';
 import { connect } from 'react-redux';
 import './Schools.css';
 
@@ -7,6 +7,7 @@ class Schools extends React.Component {
 
     componentDidMount() {
         this.props.getSchools();
+        this.props.getSchoolData();
     }
 
     render() {
@@ -15,7 +16,12 @@ class Schools extends React.Component {
                 {this.props.schools.map(school => (
                     <div key={school.id}>
                         <h1>{school.school_name}</h1>
-                        <button>Click Here for more info</button>
+                        {this.props.schoolData.map(data => (
+                            <div key={data.id}>
+                                <p>Bubl: {data.bubl_name}</p>
+                                <p>Max students allowed: {data.max_students_allowed}</p>
+                            </div>
+                        ))}
                     </div>
                 ))}
             </div>
@@ -24,9 +30,11 @@ class Schools extends React.Component {
 }
 const mapStateToProps = state => ({
     fetchingSchools: state.fetchingSchools,
-    schools: state.schools
+    fetchingSchoolData: state.fetchingSchoolData,
+    schools: state.schools,
+    schoolData: state.schoolData
 })
 
 export default connect(
     mapStateToProps,
-    { getSchools })(Schools)
+    { getSchools, getSchoolData })(Schools)

@@ -6,7 +6,8 @@ import {
     ADD_POST_START, ADD_POST_SUCCESS, ADD_POST_FAIL,
     FETCH_POST_START, FETCH_POST_SUCCESS, FETCH_POST_FAIL,
     DELETE_POST_START, DELETE_POST_SUCCESS, DELETE_POST_FAIL,
-    FETCH_SCHOOLDATA_START, FETCH_SCHOOLDATA_SUCCESS, FETCH_SCHOOLDATA_FAIL
+    FETCH_SCHOOLDATA_START, FETCH_SCHOOLDATA_SUCCESS, FETCH_SCHOOLDATA_FAIL,
+    FETCH_COMMENTS_START, FETCH_COMMENTS_SUCCESS, FETCH_COMMENTS_FAIL
 
 } from '../actions';
 
@@ -24,6 +25,8 @@ const intitialState = {
     posts: [],
     fetchingPosts: false,
     deletePost: false,
+    fetchingComments: false,
+    comments: []
 }
 
 export const reducer = (state = intitialState, action) => {
@@ -143,6 +146,7 @@ export const reducer = (state = intitialState, action) => {
                 error: ''
             }
         case FETCH_POST_SUCCESS:
+            debugger;
             return {
                 ...state,
                 fetchingPosts: false,
@@ -161,7 +165,6 @@ export const reducer = (state = intitialState, action) => {
                 error: ''
             }
         case DELETE_POST_SUCCESS:
-            console.log(action.payload)
             return {
                 ...state,
                 deletePost: false,
@@ -173,6 +176,30 @@ export const reducer = (state = intitialState, action) => {
                 deletePost: false,
                 error: action.payload
             }
+        // case FETCH_COMMENTS_START:
+        //     return {
+        //         ...state,
+        //         fetchingComments: true,
+        //         error: ''
+        //     }
+        // case FETCH_COMMENTS_SUCCESS:
+        //     // debugger;
+        //     // console.log(payload)
+        //     // let posts = state.posts.map(post => {
+        //     //     if(post.id === action.payload[0].FK_post_id){
+        //     //         post.comments = action.payload;
+        //     // }})
+        //     return {
+        //         ...state,
+        //         fetchingComments: false,
+        //         comments: action.payload
+        //     }
+        // case FETCH_COMMENTS_FAIL:
+        //     return {
+        //         ...state,
+        //         fetchingComments: false,
+        //         error: action.payload
+        //     }
 
         default:
             return state;

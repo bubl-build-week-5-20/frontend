@@ -55,11 +55,10 @@ export const FETCH_SCHOOLS_FAIL = 'FETCH_SCHOOLS_FAIL';
 
 export const getSchools = () => dispatch => {
   dispatch ({ type: FETCH_SCHOOLS_START });
-  axios
-    .get('https://bublapp.herokuapp.com/api/schools')
+  return axiosWithAuth()
+    .get('https://bublapp.herokuapp.com/api/schools'
+    )
     .then(res => {
-      // const names = Object.keys(res.data);
-      // console.log(names);
       dispatch({ type: FETCH_SCHOOLS_SUCCESS, payload: res.data })
     })
     .catch(err => {
@@ -71,12 +70,12 @@ export const FETCH_SCHOOLDATA_START = 'FETCH_SCHOOLDATA_START';
 export const FETCH_SCHOOLDATA_SUCCESS = 'FETCH_SCHOOLDATA_SUCCESS';
 export const FETCH_SCHOOLDATA_FAIL = 'FETCH_SCHOOLDATA_FAIL';
 
-export const getSchoolData = (id) => dispatch => {
+export const getSchoolData = () => dispatch => {
   dispatch ({ type: FETCH_SCHOOLDATA_START });
-  axios
-    .post(`https://bublapp.herokuapp.com/api/schools/${id}/join`)
+  return axiosWithAuth()
+    .get(`https://bublapp.herokuapp.com/api/bubls`)
     .then(res => {
-      dispatch({ type: FETCH_SCHOOLDATA_SUCCESS, payload: id })
+      dispatch({ type: FETCH_SCHOOLDATA_SUCCESS, payload: res.data })
     })
     .catch(err => {
       dispatch({ type: FETCH_SCHOOLDATA_FAIL, payload: err})
@@ -99,13 +98,14 @@ export const addPost = newPost => dispatch => {
     })
 }
 
+
 export const FETCH_POST_START = 'FETCH_POST_START';
 export const FETCH_POST_SUCCESS = 'FETCH_POST_SUCCESS';
 export const FETCH_POST_FAIL = 'FETCH_POST_FAIL';
 
 export const getPosts = () => dispatch => {
   dispatch ({ type: FETCH_POST_START });
-  axiosWithAuth()
+    return axiosWithAuth()
     .get('https://bublapp.herokuapp.com/api/posts')
     .then(res => {
       dispatch({ type: FETCH_POST_SUCCESS, payload: res.data })
@@ -128,5 +128,21 @@ export const deletePost = id => dispatch => {
     })
     .catch(err => {
       dispatch({ type: DELETE_POST_FAIL, payload: err});
+    })
+}
+
+export const FETCH_COMMENTS_START = 'FETCH_COMMENTS_START';
+export const FETCH_COMMENTS_SUCCESS = 'FETCH_COMMENTS_SUCCESS';
+export const FETCH_COMMENTS_FAIL = 'FETCH_COMMENTS_FAIL';
+
+export const getComments = () => dispatch => {
+  dispatch ({ type: FETCH_COMMENTS_START });
+  return axiosWithAuth()
+    .get(`https://bublapp.herokuapp.com/api/comments`)
+    .then(res => {
+      dispatch({ type: FETCH_COMMENTS_SUCCESS, payload: res.data })
+    })
+    .catch(err => {
+      dispatch({ type: FETCH_COMMENTS_FAIL, payload: err})
     })
 }
